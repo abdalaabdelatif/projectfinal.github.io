@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Buttons</title>
+</head>
+<body>
+    <h1>Toggle Buttons</h1>
+    
+    <!-- Button to turn on -->
+    <button onclick="toggle('on')">Turn On</button>
+    
+    <!-- Button to turn off -->
+    <button onclick="toggle('off')">Turn Off</button>
+
+    <script>
+        function toggle(state) {
+            // Send a request to write.php with the selected state
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "write.php?state=" + state, true);
+            xhr.send();
+        }
+    </script>
+</body>
+</html>
