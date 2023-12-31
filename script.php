@@ -1,18 +1,16 @@
 <?php
+// Get the state from the URL parameter
+$state = $_GET['state'];
 
-if ( isset($_GET['status']) )
-{
-	if ( $_GET['status'] == 'on' )
-	{
-		header ("Location: on.html");
-	}
-	
-	elseif ( $_GET['status'] == 'off' )
-	{
-		header ("Location: off.html");
-	}
-}
+// Define the file path
+$filePath = 'state.txt';
 
+// Open the file in write mode
+$file = fopen($filePath, 'w');
 
+// Write the state to the file
+fwrite($file, $state);
 
+// Close the file
+fclose($file);
 ?>
